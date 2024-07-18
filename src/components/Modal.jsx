@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
-function Modal({ children, open }) {
+function Modal({ open, children }) {
   const dialog = useRef();
 
   useEffect(() => {
@@ -14,7 +14,7 @@ function Modal({ children, open }) {
 
   return createPortal(
     <dialog className="modal" ref={dialog}>
-      {children}
+      {open ? children : null}
     </dialog>,
     document.getElementById("modal")
   );
